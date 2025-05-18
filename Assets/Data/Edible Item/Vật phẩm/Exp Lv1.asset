@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547c066d605527144975030b4b1634e3, type: 3}
+  m_Name: Exp Lv1
+  m_EditorClassIdentifier: 
+  <isStackable>k__BackingField: 1
+  <maxStack>k__BackingField: 99
+  <canEquip>k__BackingField: 0
+  <itemName>k__BackingField: "L\xFAa"
+  <itemDescription>k__BackingField: "V\u1EADt ph\u1EA9m d\xF9ng \u0111\u1EC3 t\u0103ng
+    Exp cho nh\xE2n v\u1EADt"
+  <itemImage>k__BackingField: {fileID: -4057896849271182281, guid: 55916597249b8e948b7cd6db657ff970, type: 3}
+  <defaultParamaterList>k__BackingField: []
+  modifierData:
+  - statModifierSO: {fileID: 11400000, guid: 38a36907633c27b498c9550aa052aa32, type: 2}
+    value: 0
+    valueMana: 0
+    valueDamage: 0
+    time: 0
+    valueExp: 10
+    isEquip: 0
+    valMaxHP: 0
+    valMaxMP: 0

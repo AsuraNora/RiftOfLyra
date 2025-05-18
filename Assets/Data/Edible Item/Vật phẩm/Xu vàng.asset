@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547c066d605527144975030b4b1634e3, type: 3}
+  m_Name: "Xu v\xE0ng"
+  m_EditorClassIdentifier: 
+  <isStackable>k__BackingField: 0
+  <maxStack>k__BackingField: 0
+  <canEquip>k__BackingField: 0
+  <itemName>k__BackingField: "Xu v\xE0ng"
+  <itemDescription>k__BackingField: "S\u1EED d\u1EE5ng \u0111\u1EC3 h\u1ED3i sinh
+    t\u1EA1i ch\u1ED7"
+  <itemImage>k__BackingField: {fileID: -7896214040048912259, guid: 32ff5b68345c3c5438511d77b552ba90, type: 3}
+  <defaultParamaterList>k__BackingField: []
+  modifierData: []

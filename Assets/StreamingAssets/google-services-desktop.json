@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "741864123214",
+    "firebase_url": "https://game-2d-e7964-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "game-2d-e7964",
+    "storage_bucket": "game-2d-e7964.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741864123214:android:6afb9c5ec1c3fc5c33cc1f",
+        "android_client_info": {
+          "package_name": "com.vinh.game2D"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFH95dyWS2yFYSeZ8c3HH0mKxYw7Wmp_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

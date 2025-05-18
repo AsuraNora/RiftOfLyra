@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfbe39854c186346b4324cc221d8cb3, type: 3}
+  m_Name: Ca rot
+  m_EditorClassIdentifier: 
+  <isStackable>k__BackingField: 1
+  <maxStack>k__BackingField: 99
+  <itemName>k__BackingField: "C\xE0 r\u1ED1t"
+  <itemDescription>k__BackingField: "C\u1EE7 c\xE0 r\u1ED1t"
+  <itemImage>k__BackingField: {fileID: -1423420836228586722, guid: 32ff5b68345c3c5438511d77b552ba90, type: 3}
