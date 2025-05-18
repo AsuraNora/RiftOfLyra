@@ -12,6 +12,7 @@ namespace Inventory
     {
         [SerializeField] private InventoryPageUI inventoryPageUI;
         [SerializeField] private InventorySO inventorySO;
+        [SerializeField] private ItemActionUI itemActionUI;
         public List<InventoryItem> initialItems = new List<InventoryItem>();
 
         private GameObject player; // Tham chiếu đến nhân vật (player)
@@ -108,6 +109,7 @@ namespace Inventory
                 }
             }
 
+            // sử dụng vật phẩm
             if (inventoryItem.item.canEquip == false)
             {
                 IDestroyableItem destroyableItem = inventoryItem.item as IDestroyableItem;
@@ -139,6 +141,8 @@ namespace Inventory
                     if (inventorySO.GetItemAt(itemIndex).isEmpty)
                     {
                         inventoryPageUI.ResetSelection();
+                        
+                        itemActionUI.Toggle(false);
                     }
                 }
             }
