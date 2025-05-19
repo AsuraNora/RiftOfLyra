@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547c066d605527144975030b4b1634e3, type: 3}
+  m_Name: "G\u1EADy"
+  m_EditorClassIdentifier: 
+  <isStackable>k__BackingField: 0
+  <maxStack>k__BackingField: 0
+  <canEquip>k__BackingField: 1
+  <itemName>k__BackingField: "G\u1EADy"
+  <itemDescription>k__BackingField: "g\u1EADy"
+  <itemImage>k__BackingField: {fileID: -6407407995499387161, guid: 55916597249b8e948b7cd6db657ff970, type: 3}
+  <defaultParamaterList>k__BackingField: []
+  modifierData:
+  - statModifierSO: {fileID: 11400000, guid: 39f05a50beaa31640ad60a2e2a367bb7, type: 2}
+    value: 0
+    valueMana: 0
+    valueDamage: 10
+    time: 0
+    valueExp: 0
+    isEquip: 0
+    valMaxHP: 0
+    valMaxMP: 0
+    itemImage: {fileID: -6407407995499387161, guid: 55916597249b8e948b7cd6db657ff970, type: 3}
+    itemType: 0

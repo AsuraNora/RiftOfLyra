@@ -7,6 +7,7 @@ using UnityEngine;
 public class CharacterStatHealthModifierSO : CharacterModifierSO
 {
     private ItemSO itemSO;
+    private EdibleItemSO edibleItemSO;     
     public override void AffectCharacter(GameObject character, float val)
     {
         if (character == null)
@@ -96,65 +97,73 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
         }
     }
 
-    public override void EquipItem(GameObject character, bool isEquip, float valMaxHP, float valMaxMana, float valDamage, Sprite itemImage, int itemType)
+    public override bool EquipItem(GameObject character, bool isEquip, float valMaxHP, float valMaxMana, float valDamage, Sprite itemImage, int itemType)
     {
         if (character == null)
         {
             Debug.LogError("Character is null. Cannot apply equip item modifier.");
-            return;
+            return false;
         }
-        if (isEquip == false)
+        Thongtin thongtin = character.GetComponent<Thongtin>();
+        StatusUI statusUI = GameObject.FindAnyObjectByType<StatusUI>();
+        if (!isEquip)
         {
-            Thongtin thongtin = character.GetComponent<Thongtin>();
-            StatusUI statusUI = GameObject.FindAnyObjectByType<StatusUI>();
             if (thongtin != null)
             {
-                thongtin.AddMaxHP(valMaxHP);
-                thongtin.AddMaxMP(valMaxMana);
-                thongtin.AddDamage(valDamage);
-                if (itemType == 1)
+                if (itemType == 0 && thongtin.playerType == Thongtin.PlayerType.Wizard && statusUI.ItemSword.GetComponent<SpriteRenderer>().sprite == null)
                 {
+                    thongtin.AddDamage(valDamage);
                     statusUI.TurnOnItemSord(itemImage);
+                    statusUI.SaveItemSword(itemImage);
+                    return true;
                 }
-                if (itemType == 2)
+                if (itemType == 1 && thongtin.playerType == Thongtin.PlayerType.Warrior && statusUI.ItemSword.GetComponent<SpriteRenderer>().sprite == null)
                 {
+                    thongtin.AddDamage(valDamage);
+                    statusUI.TurnOnItemSord(itemImage);
+                    statusUI.SaveItemSword(itemImage);
+                    return true;
+                }
+                if (itemType == 2 && statusUI.ItemArmor.GetComponent<SpriteRenderer>().sprite == null)
+                {
+                    thongtin.AddMaxHP(valMaxHP);
                     statusUI.TurnOnItemArmor(itemImage);
-                }if (itemType == 3)
+                    return true;
+                }
+                if (itemType == 3 && statusUI.ItemShoe.GetComponent<SpriteRenderer>().sprite == null)
                 {
+                    thongtin.AddMaxMP(valMaxMana);
                     statusUI.TurnOnItemShoe(itemImage);
+                    return true;
                 }
             }
-            else
-            {
-                Debug.LogError($"Thongtin component not found on {character.name}. Cannot apply equip item modifier.");
-            }
+            return false;
         }
-
         else
         {
-            Thongtin thongtin = character.GetComponent<Thongtin>();
-            StatusUI statusUI = GameObject.FindAnyObjectByType<StatusUI>();
             if (thongtin != null)
             {
                 thongtin.AddMaxHP(-valMaxHP);
                 thongtin.AddMaxMP(-valMaxMana);
                 thongtin.AddDamage(-valDamage);
-                if (itemType == 1)
+                if (itemType == 0 || itemType == 1)
                 {
                     statusUI.TurnOnItemSord(null);
+                    statusUI.SaveItemSword(itemImage);
+                    return true;
                 }
                 if (itemType == 2)
                 {
                     statusUI.TurnOnItemArmor(null);
-                }if (itemType == 3)
+                    return true;
+                }
+                if (itemType == 3)
                 {
                     statusUI.TurnOnItemShoe(null);
+                    return true;
                 }
             }
-            else
-            {
-                Debug.LogError($"Thongtin component not found on {character.name}. Cannot apply equip item modifier.");
-            }
+            return false;
         }
     }
 

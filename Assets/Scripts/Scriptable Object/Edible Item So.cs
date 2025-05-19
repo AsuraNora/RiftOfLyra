@@ -24,19 +24,19 @@ namespace Inventory.Model
                 data.statModifierSO.AffectManaCharacter(character, data.valueMana);
                 data.statModifierSO.AffectDamageCharacter(character, data.valueDamage, data.time);
                 data.statModifierSO.AffectExpCharacter(character, data.valueExp);
-                if (data.isEquip == false)
+
+                if (!data.isEquip)
                 {
-                    data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage, data.itemImage, data.itemType);
-                    data.isEquip = true;
+                    bool equipped = data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage, data.itemImage, data.itemType);
+                    if (equipped)
+                        data.isEquip = true;
                 }
                 else
                 {
-                    data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage, data.itemImage, data.itemType);
-                    data.isEquip = false;
+                    bool unequipped = data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage, data.itemImage, data.itemType);
+                    if (unequipped)
+                        data.isEquip = false;
                 }
-                // data.statModifierSO.EquipItem(character, data.isEquip, data.value, data.valueMana, data.valueDamage);
-
-
             }
             return true;
         }

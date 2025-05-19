@@ -71,10 +71,8 @@ MonoBehaviour:
   expToLevelUp: 100
   recoverHPAmount: 15
   recoverMPAmount: 15
-  playerType: 0
+  playerType: 1
   avatar: {fileID: -8858033779066787046, guid: fc7be5963443da04da918857eaeb516b, type: 3}
-  UnLockSkillLv3: 1
-  UnLockSkillLv5: 1
   skillPoints: 0
   upgradeSkillPoint: 0
 --- !u!114 &-7378137065391997449
