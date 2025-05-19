@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class StatusUI : MonoBehaviour
 {
-    public TextMesh  playerNameText;
-    public TextMesh  levelText;
-    public TextMesh  healthText;
-    public TextMesh  manaText;
-    public TextMesh  attackText;
-    public TextMesh  expText;
+    public TextMesh playerNameText;
+    public TextMesh levelText;
+    public TextMesh healthText;
+    public TextMesh manaText;
+    public TextMesh attackText;
+    public TextMesh expText;
+    [SerializeField] private GameObject ItemSword;
+    [SerializeField] private GameObject ItemArmor;
+    [SerializeField] private GameObject ItemShoe;
     //public Image imageAvatar;
-    public TextMesh  skillPointsText;
+    public TextMesh skillPointsText;
 
     private Thongtin playerThongtin;
 
@@ -32,9 +35,9 @@ public class StatusUI : MonoBehaviour
             GameObject.FindWithTag("Avatar").GetComponent<SpriteRenderer>().sprite = playerThongtin.avatar;
             levelText.text = "Level: " + playerThongtin.level;
             healthText.text = "Health: " + playerThongtin.currentHealth + "/" + playerThongtin.maxHealth;
-            manaText.text = "Mana: " + playerThongtin.currentMana+ "/" + playerThongtin.maxMana;
+            manaText.text = "Mana: " + playerThongtin.currentMana + "/" + playerThongtin.maxMana;
             attackText.text = "Attack: " + playerThongtin.attackDamage;
-            expText.text = "EXP: " + playerThongtin.currentExp+ "/" + playerThongtin.expToLevelUp;
+            expText.text = "EXP: " + playerThongtin.currentExp + "/" + playerThongtin.expToLevelUp;
         }
     }
 
@@ -81,5 +84,21 @@ public class StatusUI : MonoBehaviour
             playerThongtin.currentMana = 0;
         }
         playerThongtin.SavePlayerData();
+    }
+
+    public void TurnOnItemSord(Sprite newSprite)
+    {
+        SpriteRenderer img = ItemSword.GetComponent<SpriteRenderer>();
+        img.sprite = newSprite;
+    }
+    public void TurnOnItemArmor(Sprite newSprite)
+    {
+        SpriteRenderer img = ItemArmor.GetComponent<SpriteRenderer>();
+        img.sprite = newSprite;
+    }
+    public void TurnOnItemShoe(Sprite newSprite)
+    {
+        SpriteRenderer img = ItemShoe.GetComponent<SpriteRenderer>();
+        img.sprite = newSprite;
     }
 }

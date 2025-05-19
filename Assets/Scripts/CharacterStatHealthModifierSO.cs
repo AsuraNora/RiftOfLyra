@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CharacterStatHealthModifierSO : CharacterModifierSO
 {
+    private ItemSO itemSO;
     public override void AffectCharacter(GameObject character, float val)
     {
         if (character == null)
@@ -95,7 +96,7 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
         }
     }
 
-    public override void EquipItem(GameObject character, bool isEquip, float valMaxHP, float valMaxMana, float valDamage)
+    public override void EquipItem(GameObject character, bool isEquip, float valMaxHP, float valMaxMana, float valDamage, Sprite itemImage, int itemType)
     {
         if (character == null)
         {
@@ -105,13 +106,23 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
         if (isEquip == false)
         {
             Thongtin thongtin = character.GetComponent<Thongtin>();
-            //InventoryItemUI inventoryItemUI = character.GetComponent<InventoryItemUI>();
+            StatusUI statusUI = GameObject.FindAnyObjectByType<StatusUI>();
             if (thongtin != null)
             {
                 thongtin.AddMaxHP(valMaxHP);
                 thongtin.AddMaxMP(valMaxMana);
                 thongtin.AddDamage(valDamage);
-                //inventoryItemUI.SetColor(Color.red);
+                if (itemType == 1)
+                {
+                    statusUI.TurnOnItemSord(itemImage);
+                }
+                if (itemType == 2)
+                {
+                    statusUI.TurnOnItemArmor(itemImage);
+                }if (itemType == 3)
+                {
+                    statusUI.TurnOnItemShoe(itemImage);
+                }
             }
             else
             {
@@ -121,15 +132,24 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
 
         else
         {
-            // Lấy component Thongtin từ đối tượng character
             Thongtin thongtin = character.GetComponent<Thongtin>();
-            //InventoryItemUI inventoryItemUI = character.GetComponent<InventoryItemUI>();
+            StatusUI statusUI = GameObject.FindAnyObjectByType<StatusUI>();
             if (thongtin != null)
             {
                 thongtin.AddMaxHP(-valMaxHP);
                 thongtin.AddMaxMP(-valMaxMana);
                 thongtin.AddDamage(-valDamage);
-                //inventoryItemUI.SetColor(Color.white);
+                if (itemType == 1)
+                {
+                    statusUI.TurnOnItemSord(null);
+                }
+                if (itemType == 2)
+                {
+                    statusUI.TurnOnItemArmor(null);
+                }if (itemType == 3)
+                {
+                    statusUI.TurnOnItemShoe(null);
+                }
             }
             else
             {

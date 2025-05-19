@@ -26,12 +26,12 @@ namespace Inventory.Model
                 data.statModifierSO.AffectExpCharacter(character, data.valueExp);
                 if (data.isEquip == false)
                 {
-                    data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage);
+                    data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage, data.itemImage, data.itemType);
                     data.isEquip = true;
                 }
                 else
                 {
-                    data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage);
+                    data.statModifierSO.EquipItem(character, data.isEquip, data.valMaxHP, data.valMaxMP, data.valueDamage, data.itemImage, data.itemType);
                     data.isEquip = false;
                 }
                 // data.statModifierSO.EquipItem(character, data.isEquip, data.value, data.valueMana, data.valueDamage);
@@ -64,6 +64,8 @@ namespace Inventory.Model
         public bool isEquip;
         public float valMaxHP;
         public float valMaxMP;
+        public Sprite itemImage;
+        public int itemType;
     }
 }
 

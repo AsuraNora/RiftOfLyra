@@ -29,3 +29,5 @@ MonoBehaviour:
     isEquip: 0
     valMaxHP: 0
     valMaxMP: 0
+    itemImage: {fileID: 21300000, guid: 0653bbcea2d4839409e0664e37cd1492, type: 3}
+    itemType: 1

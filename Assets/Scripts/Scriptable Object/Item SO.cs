@@ -7,16 +7,25 @@ namespace Inventory.Model
 
     public abstract class ItemSO : ScriptableObject
     {
-        [field: SerializeField] public bool isStackable { get; set; }
+        
+        [NonSerialized]
+        [SerializeField] private int id;
         public int ID => GetInstanceID();
+        [field: SerializeField] public bool isStackable { get; set; }
+
         [field: SerializeField] public int maxStack { get; set; }
         [field: SerializeField] public bool canEquip { get; set; }
         [field: SerializeField] public string itemName { get; set; }
-        [field: SerializeField] [field: TextArea] public string itemDescription { get; set; }
-        [field: SerializeField] public Sprite itemImage { get; set;}
+        [field: SerializeField][field: TextArea] public string itemDescription { get; set; }
+        [field: SerializeField] public Sprite itemImage { get; set; }
         [field: SerializeField] public List<ItemParamater> defaultParamaterList { get; set; }
+
+        private void OnEnable()
+        {
+            id = GetInstanceID();
+        }
     }
-  
+
     [Serializable]
     public struct ItemParamater : IEquatable<ItemParamater>
     {
