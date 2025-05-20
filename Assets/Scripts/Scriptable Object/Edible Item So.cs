@@ -8,6 +8,7 @@ namespace Inventory.Model
     public class EdibleItemSO : ItemSO, IDestroyableItem, IItemAction
     {
         [SerializeField] private List<ModifierData> modifierData = new List<ModifierData>();
+
         public string ActionName => "Use";
         // [field : SerializeField] public AudioClip actionSFX { get; set; }
 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class CharacterStatHealthModifierSO : CharacterModifierSO
 {
     private ItemSO itemSO;
-    private EdibleItemSO edibleItemSO;     
+    private EdibleItemSO edibleItemSO;
     public override void AffectCharacter(GameObject character, float val)
     {
         if (character == null)
@@ -106,6 +106,7 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
         }
         Thongtin thongtin = character.GetComponent<Thongtin>();
         StatusUI statusUI = GameObject.FindAnyObjectByType<StatusUI>();
+
         if (!isEquip)
         {
             if (thongtin != null)
@@ -114,14 +115,12 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
                 {
                     thongtin.AddDamage(valDamage);
                     statusUI.TurnOnItemSord(itemImage);
-                    statusUI.SaveItemSword(itemImage);
                     return true;
                 }
                 if (itemType == 1 && thongtin.playerType == Thongtin.PlayerType.Warrior && statusUI.ItemSword.GetComponent<SpriteRenderer>().sprite == null)
                 {
                     thongtin.AddDamage(valDamage);
                     statusUI.TurnOnItemSord(itemImage);
-                    statusUI.SaveItemSword(itemImage);
                     return true;
                 }
                 if (itemType == 2 && statusUI.ItemArmor.GetComponent<SpriteRenderer>().sprite == null)
@@ -149,7 +148,6 @@ public class CharacterStatHealthModifierSO : CharacterModifierSO
                 if (itemType == 0 || itemType == 1)
                 {
                     statusUI.TurnOnItemSord(null);
-                    statusUI.SaveItemSword(itemImage);
                     return true;
                 }
                 if (itemType == 2)

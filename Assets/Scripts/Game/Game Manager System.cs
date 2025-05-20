@@ -145,7 +145,7 @@ public class GameManagerSystem : MonoBehaviour
                 WizardMovement wizardMovement = player.GetComponent<WizardMovement>();
                 wizardMovement.moveSpeed = 5f;
             }
-            else if (characterClass == "Warrior" )
+            else if (characterClass == "Warrior")
             {
                 Dichuyển move = player.GetComponent<Dichuyển>();
                 move.moveSpeed = 5f;
@@ -157,6 +157,7 @@ public class GameManagerSystem : MonoBehaviour
             if (canvasBag != null) canvasBag.transform.position = hidePosition;
             if (canvasWizardSkill != null) canvasWizardSkill.transform.position = hidePosition;
             if (canvasWarriorSkill != null) canvasWarriorSkill.transform.position = hidePosition;
+            
         }
     }
 }

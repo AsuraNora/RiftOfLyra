@@ -117,8 +117,8 @@ namespace Inventory.UI
             OnDescrionRequested?.Invoke(index);
         }
 
-        public void UpdateData( int itemIndex,
-                                Sprite itemImage, 
+        public void UpdateData(int itemIndex,
+                                Sprite itemImage,
                                 int itemQuantity
                                 )
         {
@@ -166,7 +166,7 @@ namespace Inventory.UI
             itemActionUI.transform.position = listOfInventoryItemUI[index].transform.position;
         }
 
-        private void DeSelectAllItems()
+        public void DeSelectAllItems()
         {
             foreach (InventoryItemUI item in listOfInventoryItemUI)
             {
@@ -195,6 +195,14 @@ namespace Inventory.UI
             {
                 item.ResetData();
                 item.DeSelect();
+            }
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                DeSelectAllItems();
             }
         }
 

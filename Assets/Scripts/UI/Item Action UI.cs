@@ -8,16 +8,17 @@ namespace Inventory.UI
     {
         [SerializeField] private GameObject buttonPrefab;
 
-        public void AddButton(string name, Action onClickAction) 
+        public void AddButton(string name, Action onClickAction)
         {
             GameObject button = Instantiate(buttonPrefab, transform);
-            button.GetComponent<Button>().onClick.AddListener( () => onClickAction() );
-            button.GetComponentInChildren<TMPro.TMP_Text>().text = name; 
+            button.GetComponent<Button>().onClick.AddListener(() => onClickAction());
+            button.GetComponentInChildren<TMPro.TMP_Text>().text = name;
+
         }
 
         public void Toggle(bool val)
         {
-            if(val == true)
+            if (val == true)
             {
                 RemoveButton();
             }
@@ -26,12 +27,11 @@ namespace Inventory.UI
 
         public void RemoveButton()
         {
-            foreach(Transform child in transform) 
+            foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
         }
-        
     }
 }
 

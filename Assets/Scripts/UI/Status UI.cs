@@ -22,48 +22,10 @@ public class StatusUI : MonoBehaviour
         if (playerThongtin != null)
         {
             playerThongtin.LoadPlayerData();
-            LoadItemSword();
         }
 
     }
-
-    public void LoadItemSword()
-    {
-        string spriteName = PlayerPrefs.GetString("ItemSwordSprite", "");
-        if (!string.IsNullOrEmpty(spriteName))
-        {
-            Sprite loadedSprite = Resources.Load<Sprite>(spriteName);
-            if (loadedSprite != null)
-            {
-                SpriteRenderer sr = ItemSword.GetComponent<SpriteRenderer>();
-                if (sr != null)
-                {
-                    sr.sprite = loadedSprite;
-                }
-                else
-                {
-                    Debug.LogWarning("ItemSword does not have a SpriteRenderer component.");
-                }
-            }
-            else
-            {
-                Debug.LogWarning("Không tìm thấy sprite trong Resources với tên: " + spriteName);
-            }
-        }
-    }
-
-    public void SaveItemSword(Sprite newSprite)
-    {
-        SpriteRenderer img = ItemSword.GetComponent<SpriteRenderer>();
-        img.sprite = newSprite;
-        // Lưu sprite vào PlayerPrefs
-        if (img.sprite != null)
-        {
-            PlayerPrefs.SetString("ItemSwordSprite", img.sprite.name);
-            PlayerPrefs.Save();
-        }
-    }
-
+    
     void Update()
     {
         playerThongtin = GameObject.FindGameObjectWithTag("Player").GetComponent<Thongtin>();
