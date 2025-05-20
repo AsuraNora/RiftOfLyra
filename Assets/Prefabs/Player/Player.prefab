@@ -262,8 +262,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.009584606, y: -0.41043907}
-  m_Size: {x: 0.7522, y: 0.7522}
+  m_Offset: {x: -0.005628109, y: 0.041378617}
+  m_Size: {x: 0.7217746, y: 1.0777521}
   m_Direction: 0
 --- !u!95 &4822767082957972571
 Animator:
@@ -345,8 +345,6 @@ MonoBehaviour:
   recoverMPAmount: 10
   playerType: 0
   avatar: {fileID: -4709456396536258026, guid: 2622781a84fbb4a45aaf966d1918838d, type: 3}
-  UnLockSkillLv3: 1
-  UnLockSkillLv5: 1
   skillPoints: 0
   upgradeSkillPoint: 0
 --- !u!114 &6960442666287762644
@@ -420,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPageUI: {fileID: 0}
   inventorySO: {fileID: 11400000, guid: 403a1ad469b73954887fc61305fee920, type: 2}
+  itemActionUI: {fileID: 0}
   initialItems:
   - quantity: 1
     item: {fileID: 11400000, guid: 9b900201e35859e469e955018d21d1c1, type: 2}
