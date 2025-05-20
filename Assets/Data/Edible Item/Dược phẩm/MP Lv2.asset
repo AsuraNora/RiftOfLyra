@@ -18,7 +18,7 @@ MonoBehaviour:
   <itemName>k__BackingField: MP Lv2
   <itemDescription>k__BackingField: "S\u1EED d\u1EE5ng \u0111\u1EC3 h\u1ED3i ph\u1EE5c
     50 MP"
-  <itemImage>k__BackingField: {fileID: -394721616569298502, guid: 32ff5b68345c3c5438511d77b552ba90, type: 3}
+  <itemImage>k__BackingField: {fileID: -5417832148816377048, guid: 55916597249b8e948b7cd6db657ff970, type: 3}
   <defaultParamaterList>k__BackingField: []
   modifierData:
   - statModifierSO: {fileID: 11400000, guid: a1c39b59fe83d5c418e26a5109a1b5ff, type: 2}
@@ -30,3 +30,5 @@ MonoBehaviour:
     isEquip: 0
     valMaxHP: 0
     valMaxMP: 0
+    itemImage: {fileID: 0}
+    itemType: 0

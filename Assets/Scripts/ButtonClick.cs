@@ -19,6 +19,7 @@ public class ButtonClick : MonoBehaviour
         RiseLevelAttackWarrior,
         RiseLevelFireCircle,
         RiseLevelSpeed,
+        Rank
     }
 
     [SerializeField] private ButtonType buttonType;
@@ -98,6 +99,12 @@ public class ButtonClick : MonoBehaviour
         {
             GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
             gameManagerSystem.OnButtonBagClick();
+        }
+
+        else if (buttonType == ButtonType.Rank)
+        {
+            GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
+            gameManagerSystem.OnButtonRankClick();
         }
     }
 }

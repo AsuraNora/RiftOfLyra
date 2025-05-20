@@ -204,6 +204,16 @@ namespace Inventory.UI
             {
                 DeSelectAllItems();
             }
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll > 0f)
+            {
+                DeSelectAllItems();
+            }
+            else if (scroll < 0f)
+            {
+                DeSelectAllItems();
+            }
+
         }
 
     }
