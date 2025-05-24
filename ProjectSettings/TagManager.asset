@@ -10,6 +10,7 @@ TagManager:
   - UI HP
   - UI MP
   - Avatar
+  - Game Manager
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,7 @@ public class GameManagerSystem : MonoBehaviour
     [SerializeField] private GameObject canvasWizardSkill;
     [SerializeField] private GameObject canvasWarriorSkill;
     [SerializeField] private GameObject canvasRank;
+    [SerializeField] public GameObject canvasInteract;
 
     private Vector3 hidePosition = new Vector3(9999f, 9999f, 9999f);
     private float originalSpeed;
@@ -24,6 +25,7 @@ public class GameManagerSystem : MonoBehaviour
         if (canvasStatus != null) canvasStatus.transform.position = hidePosition;
         if (canvasBag != null) canvasBag.transform.position = hidePosition;
         if (canvasRank != null) canvasRank.transform.position = hidePosition;
+        if (canvasInteract != null) canvasInteract.transform.position = hidePosition;
 
         // Kiểm tra class của nhân vật và bật đúng canvas kỹ năng
         string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
@@ -123,6 +125,18 @@ public class GameManagerSystem : MonoBehaviour
         }
     }
 
+    public void OnButtonInteractClick()
+    {
+        if (canvasInteract != null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            canvasMenu.transform.position = hidePosition;
+            canvasInteract.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 1, player.transform.position.z);
+            Interact interact = GameObject.FindObjectOfType<Interact>();
+            interact.showTaskDetails();
+        }
+    }
+
     public void OnButtonQuitClick()
     {
         GameObject player = GameObject.FindWithTag("Player");
@@ -170,6 +184,7 @@ public class GameManagerSystem : MonoBehaviour
             if (canvasWizardSkill != null) canvasWizardSkill.transform.position = hidePosition;
             if (canvasWarriorSkill != null) canvasWarriorSkill.transform.position = hidePosition;
             if (canvasRank != null) canvasRank.transform.position = hidePosition;
+            if (canvasInteract != null) canvasInteract.transform.position = hidePosition;
         }
     }
 }

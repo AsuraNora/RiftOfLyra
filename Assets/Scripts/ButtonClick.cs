@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ButtonClick : MonoBehaviour
 {
-    
+
     enum ButtonType
     {
         State,
@@ -19,7 +19,10 @@ public class ButtonClick : MonoBehaviour
         RiseLevelAttackWarrior,
         RiseLevelFireCircle,
         RiseLevelSpeed,
-        Rank
+        Rank,
+        Task,
+        AcceptAsk,
+        RejectAsk
     }
 
     [SerializeField] private ButtonType buttonType;
@@ -106,5 +109,46 @@ public class ButtonClick : MonoBehaviour
             GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
             gameManagerSystem.OnButtonRankClick();
         }
+
+        else if (buttonType == ButtonType.Task)
+        {
+            GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
+            gameManagerSystem.OnButtonInteractClick();
+        }
+
+        else if (buttonType == ButtonType.AcceptAsk)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
+            TaskManager taskManager = FindObjectOfType<TaskManager>();
+            int currentTaskIndex = taskManager.currentTaskIndex;
+            if (player == null)
+            {
+                Debug.LogError("Không tìm thấy đối tượng Player trong scene.");
+                return;
+            }
+            else
+            {
+                if (taskManager.GetTaskList()[currentTaskIndex].taskStatus == TaskStatus.NotAccepted)
+                {
+                    PlayerTaskController playerTaskController = player.GetComponent<PlayerTaskController>();
+                    playerTaskController.AcceptTaskClick();
+                }
+                else if (taskManager.GetTaskList()[currentTaskIndex].taskStatus == TaskStatus.InProgress)
+                {
+                    PlayerTaskController playerTaskController = player.GetComponent<PlayerTaskController>();
+                    playerTaskController.CancelTaskClick();
+                }
+                else if (taskManager.GetTaskList()[currentTaskIndex].taskStatus == TaskStatus.Completed)
+                {
+                    PlayerTaskController playerTaskController = player.GetComponent<PlayerTaskController>();
+                    playerTaskController.CompleteTaskClick();
+                }
+            }
+
+            gameManagerSystem.canvasInteract.transform.position = new Vector3(9999f, 9999f, 9999f);
+
+        }
+
     }
 }

@@ -65,12 +65,12 @@ public class EnemyAI : MonoBehaviour
         textDeclineHP.text = string.Empty;
     }
 
-    void Update() 
+    void Update()
     {
-        
-     }
 
-    private void UpdateHPBar( )
+    }
+
+    private void UpdateHPBar()
     {
         float HPPercentage = currentHealth / enemyHealth;
 
@@ -153,6 +153,8 @@ public class EnemyAI : MonoBehaviour
 
     void Die()
     {
+        CountQuantityTask();
+
         animator.SetTrigger("Die");
         StopCoroutine(moveCoroutine);
         rb.linearVelocity = Vector2.zero;
@@ -314,6 +316,21 @@ public class EnemyAI : MonoBehaviour
         else if (moveDirection.x < -0.01f)
             spriteRenderer.flipX = true; // Quay trái
     }
+
+    private void CountQuantityTask()
+    {
+        TaskManager taskManager = FindObjectOfType<TaskManager>();
+        int currentTaskIndex = taskManager.currentTaskIndex;
+        if (taskManager.taskList[currentTaskIndex].taskName == "Tiêu diệt Slime" && taskManager.taskList[currentTaskIndex].taskStatus == TaskStatus.InProgress && enemyType == EnemyType.SlimeLv1)
+        {
+            taskManager.taskList[currentTaskIndex].taskQuantityCurrent += 1;
+        }
+        else if (taskManager.taskList[currentTaskIndex].taskName == "Tiêu diệt Green Slime" && taskManager.taskList[currentTaskIndex].taskStatus == TaskStatus.InProgress && enemyType == EnemyType.GreenSlimeLv3)
+        {
+            taskManager.taskList[currentTaskIndex].taskQuantityCurrent += 1;
+        }
+    }
+
 }
 
 [System.Serializable]

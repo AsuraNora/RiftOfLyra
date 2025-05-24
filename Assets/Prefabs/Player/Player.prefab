@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 8395032947350023599}
   - component: {fileID: -3638319033718815406}
   - component: {fileID: -1825088019539664866}
+  - component: {fileID: 98001425023130064}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -486,6 +487,18 @@ MonoBehaviour:
   cooldownTime: 5
   fireBombDame: 10
   textLevelSkillFireCircle: 1
+--- !u!114 &98001425023130064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846305035621795540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e8fb5f16317d54682c5636d53599f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &950329201120072476
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 950329201120072476}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.052, y: -0.412, z: 0}
+  m_LocalPosition: {x: 0.002, y: -0.412, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
