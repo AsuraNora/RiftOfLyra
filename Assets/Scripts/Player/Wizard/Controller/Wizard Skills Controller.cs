@@ -78,7 +78,7 @@ public class WizardSkillsController : MonoBehaviour
         {
             PlayerController fireDartInfo = player.GetComponent<PlayerController>();
             textLevelSkill.text = "Level: " + fireDartInfo.levelSkillFireDart;
-            textDameSkillNormalAttack.text = "ATL: " + fireDartInfo.fireDartDame;
+            textDameSkillNormalAttack.text = "ATK: " + fireDartInfo.fireDartDame;
         }
     }
      

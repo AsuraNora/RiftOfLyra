@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private bool canFireDart = false;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    [SerializeField] public float fireDartDame;
+    [SerializeField] public float fireDartDame = 10f;
     [SerializeField] public int levelSkillFireDart = 1;
 
     void Start()

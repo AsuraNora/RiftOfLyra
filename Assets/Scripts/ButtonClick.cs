@@ -23,7 +23,8 @@ public class ButtonClick : MonoBehaviour
         Task,
         AcceptAsk,
         Escape,
-        UpgradePoisionNeedle
+        UpgradePoisionNeedle,
+        UpgradeFireMeteorite
     }
 
     [SerializeField] private ButtonType buttonType;
@@ -161,7 +162,12 @@ public class ButtonClick : MonoBehaviour
         {
             WizardSkillsController wizardSkillsController = FindObjectOfType<WizardSkillsController>();
             wizardSkillsController.OnUpgradePoisionNeedle();
-            
+        }
+
+        else if (buttonType == ButtonType.UpgradeFireMeteorite)
+        {
+            WarriorSkillsController warriorSkillsController = FindObjectOfType<WarriorSkillsController>();
+            warriorSkillsController.OnButtonUpgradeSkillFireMeteorite();
         }
 
     }

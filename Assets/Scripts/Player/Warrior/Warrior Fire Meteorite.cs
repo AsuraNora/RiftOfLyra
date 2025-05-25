@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WarriorFireMeteorite : MonoBehaviour
 {
-    [SerializeField] private float meteoriteRange = 5f;
-    [SerializeField] private float meteoriteDamage = 10f;
+    [SerializeField] public int fireMeteoriteLevel = 1; 
+    [SerializeField] private float fireMeteoriteRange = 5f;
+    [SerializeField] public float fireMeteoriteDame = 10f;
     [SerializeField] private float meteoriteCoolDown = 5f;
     [SerializeField] private float meteoriteManaCost = 10f;
     [SerializeField] private GameObject meteoriteEffectPrefab;
@@ -55,14 +56,14 @@ public class WarriorFireMeteorite : MonoBehaviour
         if (meteorite != null)
         {
             // Gây sát thương vùng
-            Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, meteoriteRange);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(targetPos, fireMeteoriteRange);
             foreach (var hit in hits)
             {
                 if (hit.CompareTag("Enemy"))
                 {
                     EnemyAI enemy = hit.GetComponent<EnemyAI>();
                     if (enemy != null)
-                        enemy.TakeDamage(meteoriteDamage);
+                        enemy.TakeDamage(fireMeteoriteDame);
                 }
             }
             Destroy(meteorite);
