@@ -121,6 +121,7 @@ public class TaskManager : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, availableIndexes.Count);
         currentTaskIndex = availableIndexes[randomIndex];
     }
+
 }
 
 [Serializable]

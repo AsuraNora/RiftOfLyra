@@ -18,7 +18,12 @@ public class Interact : MonoBehaviour
     void Update()
     {
         CheckPlayerInRange();
-        
+
+        if (playerInRange && Input.GetKeyDown(KeyCode.Return))
+        {
+            GameManagerSystem gameManager = FindObjectOfType<GameManagerSystem>();
+            gameManager.OnButtonInteractClick();
+        }
     }
 
     void CheckPlayerInRange()

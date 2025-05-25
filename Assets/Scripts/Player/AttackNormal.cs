@@ -24,7 +24,7 @@ public class AttackNormal : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && canAttack)
+        if (Input.GetKeyDown(KeyCode.Q) && canAttack)
         {
                 Attack();
         }

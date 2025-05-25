@@ -22,7 +22,7 @@ public class ButtonClick : MonoBehaviour
         Rank,
         Task,
         AcceptAsk,
-        RejectAsk
+        Escape
     }
 
     [SerializeField] private ButtonType buttonType;
@@ -113,7 +113,7 @@ public class ButtonClick : MonoBehaviour
         else if (buttonType == ButtonType.Task)
         {
             GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
-            gameManagerSystem.OnButtonInteractClick();
+            gameManagerSystem.OnButtonTaskInfoClick();
         }
 
         else if (buttonType == ButtonType.AcceptAsk)
@@ -148,6 +148,12 @@ public class ButtonClick : MonoBehaviour
 
             gameManagerSystem.canvasInteract.transform.position = new Vector3(9999f, 9999f, 9999f);
 
+        }
+
+        else if (buttonType == ButtonType.Escape)
+        {
+            GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
+            gameManagerSystem.OnButtonEscapeClick();
         }
 
     }
