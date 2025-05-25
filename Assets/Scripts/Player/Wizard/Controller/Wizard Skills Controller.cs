@@ -3,9 +3,18 @@ using UnityEngine;
 public class WizardSkillsController : MonoBehaviour
 {
     private GameObject player;
+    [Header("Energy Ball")]
     [SerializeField] private TextMesh textLevelSkillFireDart;
+    [SerializeField] private TextMesh textDameSkillNormalAttack;
+    [Header("Teleport")]
     [SerializeField] private TextMesh textlevelSkillTeleport;
+    [Header("Poision Slash")]
     [SerializeField] private TextMesh textLevelSkill;
+    [SerializeField] private TextMesh textDameSkillPoisionSlash;
+    [Header("Poision Needle")]
+    [SerializeField] private TextMesh textLevelSkillPoisionNeedle;
+    [SerializeField] private TextMesh textDameSkillPoisionNeedle;
+
     [SerializeField] private TextMesh textSkillPoints;
 
     void Start()
@@ -18,6 +27,7 @@ public class WizardSkillsController : MonoBehaviour
         showLevelSkillPoiSionSlash();
         showLevelSkillTeleport();
         showLevelSkillFireDart();
+        showLevelSkillPoisionNeedle();
         Thongtin thongtin = GameObject.FindGameObjectWithTag("Player").GetComponent<Thongtin>();
         textSkillPoints.text = "KỸ NĂNG: " + thongtin.upgradeSkillPoint.ToString();
     }
@@ -68,6 +78,7 @@ public class WizardSkillsController : MonoBehaviour
         {
             PlayerController fireDartInfo = player.GetComponent<PlayerController>();
             textLevelSkill.text = "Level: " + fireDartInfo.levelSkillFireDart;
+            textDameSkillNormalAttack.text = "ATL: " + fireDartInfo.fireDartDame;
         }
     }
      
@@ -167,8 +178,63 @@ public class WizardSkillsController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            SkillPoisionSlashController fireBombInfo = player.GetComponent<SkillPoisionSlashController>();
-            textLevelSkill.text = "Level: " + fireBombInfo.levelSkill;
+            WizardPosisionNeedle wizardPosisionNeedle = player.GetComponent<WizardPosisionNeedle>();
+            textLevelSkillPoisionNeedle.text = "Level: " + wizardPosisionNeedle.levelSkillPoisionNeedle;
+            textDameSkillPoisionNeedle.text = "ATK: " + wizardPosisionNeedle.poisionNeedleDamage;
+        }
+    }
+
+    // Poision Needle
+    public void OnUpgradePoisionNeedle()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Thongtin thongtin = player.GetComponent<Thongtin>();
+            WizardPosisionNeedle poisionNeedleInfo = player.GetComponent<WizardPosisionNeedle>();
+            if (thongtin != null)
+            {
+                if (thongtin.upgradeSkillPoint > 0)
+                {
+                    thongtin.upgradeSkillPoint--;
+                    if (poisionNeedleInfo != null)
+                    {
+                        poisionNeedleInfo.poisionNeedleDamage += 10;
+                        poisionNeedleInfo.levelSkillPoisionNeedle++;
+                    }
+                    else
+                    {
+                        Debug.LogError("SkillPoisionNeedleController not found on Player!");
+                    }
+                    thongtin.SavePlayerData();
+                }
+                else
+                {
+                    Debug.LogWarning("Not enough upgrade skill points!");
+                }
+            }
+            else
+            {
+                Debug.LogError("Thongtin component not found on Player!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Player not found!");
+        }
+    }
+
+    private void showLevelSkillPoisionNeedle()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            WizardPosisionNeedle poisionNeedleInfo = player.GetComponent<WizardPosisionNeedle>();
+            if (poisionNeedleInfo != null)
+            {
+                textLevelSkill.text = "Level: " + poisionNeedleInfo.levelSkillPoisionNeedle;
+                textDameSkillPoisionSlash.text = "ATK: " + poisionNeedleInfo.poisionNeedleDamage;
+            }
         }
     }
 

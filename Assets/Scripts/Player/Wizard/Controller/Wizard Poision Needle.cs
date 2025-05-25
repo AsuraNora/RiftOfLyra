@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WizardPosisionNeedle : MonoBehaviour
 {
+    [SerializeField] public int levelSkillPoisionNeedle = 1;
     [SerializeField] private float poisionNeedleRange = 5f;
-    [SerializeField] private float poisionNeedleDamage = 10f;
+    [SerializeField] public float poisionNeedleDamage = 10f;
     [SerializeField] private float poisionNeedleCoolDown = 5f;
     [SerializeField] private float poisionNeedleManaCost = 10f;
     [SerializeField] private GameObject poisionNeedleEffectPrefab;
@@ -56,5 +57,8 @@ public class WizardPosisionNeedle : MonoBehaviour
             }
         }
     }
+
+    
+
 }
 

@@ -22,7 +22,8 @@ public class ButtonClick : MonoBehaviour
         Rank,
         Task,
         AcceptAsk,
-        Escape
+        Escape,
+        UpgradePoisionNeedle
     }
 
     [SerializeField] private ButtonType buttonType;
@@ -154,6 +155,13 @@ public class ButtonClick : MonoBehaviour
         {
             GameManagerSystem gameManagerSystem = FindObjectOfType<GameManagerSystem>();
             gameManagerSystem.OnButtonEscapeClick();
+        }
+
+        else if (buttonType == ButtonType.UpgradePoisionNeedle)
+        {
+            WizardSkillsController wizardSkillsController = FindObjectOfType<WizardSkillsController>();
+            wizardSkillsController.OnUpgradePoisionNeedle();
+            
         }
 
     }
