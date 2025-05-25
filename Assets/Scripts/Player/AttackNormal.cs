@@ -5,21 +5,21 @@ using UnityEngine.InputSystem;
 public class AttackNormal : MonoBehaviour
 {
     private Animator animator;
-    private bool canAttack = true; // Biến để kiểm tra xem nhân vật có thể tấn công hay không
-    public float attackCooldown = 1f; // Thời gian hồi chiêu cho tấn công
-    public GameObject attackZone; // Tham chiếu đến GameObject AttackZone
-    private Thongtin thôngtin; // Tham chiếu đến PlayerStats
-    private Dichuyển dichuyển; // Tham chiếu đến script Dichuyển
-    public float attackRange = 0.5f; // Khoảng cách tấn công
-    public float attackDamage = 5f; // Sát thương tấn công
+    private bool canAttack = true; 
+    public float attackCooldown = 1f; 
+    public GameObject attackZone; 
+    private Thongtin thôngtin; 
+    private Dichuyển dichuyển; 
+    public float attackRange = 0.5f; 
+    public float attackDamage = 5f; 
     public int levelSkillAttackWarrior = 1;
 
     void Start()
     {
-        animator = GetComponent<Animator>(); // Lấy tham chiếu đến Animator
-        attackZone.SetActive(false); // Vô hiệu hóa AttackZone ban đầu
-        thôngtin = GetComponent<Thongtin>(); // Lấy tham chiếu đến PlayerStats
-        dichuyển = GetComponent<Dichuyển>(); // Lấy tham chiếu đến script Dichuyển
+        animator = GetComponent<Animator>(); 
+        attackZone.SetActive(false); 
+        thôngtin = GetComponent<Thongtin>(); 
+        dichuyển = GetComponent<Dichuyển>(); 
     }
 
     void Update()
@@ -58,11 +58,11 @@ public class AttackNormal : MonoBehaviour
         // Cập nhật hướng của AttackZone dựa trên hướng của nhân vật theo trục X
         if (directionX < 0)
         {
-            attackZone.transform.localRotation = Quaternion.Euler(0, 180, 0); // Quay mặt sang trái
+            attackZone.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (directionX > 0)
         {
-            attackZone.transform.localRotation = Quaternion.Euler(0, 0, 0); // Quay mặt sang phải
+            attackZone.transform.localRotation = Quaternion.Euler(0, 0, 0); 
         }
     }
 

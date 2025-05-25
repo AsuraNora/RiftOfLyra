@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5872148103890363991}
   - component: {fileID: 2881125241188459144}
   - component: {fileID: 1041360518082015212}
+  - component: {fileID: 2227633232154041453}
   m_Layer: 0
   m_Name: Lv15 Minotaur
   m_TagString: Enemy
@@ -99,7 +100,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3708854502361057399}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -144,7 +145,7 @@ EdgeCollider2D:
   - {x: -0.07249117, y: 0.80029714}
   - {x: -0.3003769, y: 0.6608453}
   - {x: -0.4770708, y: 0.44553995}
-  - {x: -0.5343795, y: 0.3476472}
+  - {x: -0.59037876, y: 0.3700471}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -227,6 +228,43 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &2227633232154041453
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3708854502361057399}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.08399916, y: 0.12879848}
+  m_Size: {x: 0.995224, y: 1.3984184}
+  m_Direction: 0
 --- !u!1001 &8885765819572136204
 PrefabInstance:
   m_ObjectHideFlags: 0

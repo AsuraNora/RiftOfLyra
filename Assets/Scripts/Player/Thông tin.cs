@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Thongtin : MonoBehaviour
@@ -35,8 +35,7 @@ public class Thongtin : MonoBehaviour
         LoadPlayerData();
         StartCoroutine(RecoverHP());
         StartCoroutine(RecoveMP());
-
-
+        GetAllPlayersFromThongtin();
     }
 
     public void TakeDamage(float damage)
@@ -130,7 +129,6 @@ public class Thongtin : MonoBehaviour
         }
     }
 
-
     public void SavePlayerData()
     {
         string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
@@ -146,9 +144,18 @@ public class Thongtin : MonoBehaviour
         PlayerPrefs.SetFloat(loggedInUser + "_ManaBonus", manaBonus);
         PlayerPrefs.SetInt(loggedInUser + "_CurrentExp", currentExp);
         PlayerPrefs.SetInt(loggedInUser + "_ExpToLevelUp", expToLevelUp);
-        PlayerPrefs.SetInt(loggedInUser  + "_PlayerType", (int)playerType);
+        PlayerPrefs.SetInt(loggedInUser + "_PlayerType", (int)playerType);
         PlayerPrefs.SetInt(loggedInUser + "_SkillPoints", skillPoints);
         PlayerPrefs.SetInt(loggedInUser + "_UpgradeSkillPoint", upgradeSkillPoint);
+
+        // Cập nhật danh sách AllPlayers
+        string allPlayers = PlayerPrefs.GetString("AllPlayers", "");
+        if (!allPlayers.Contains(loggedInUser + ";"))
+        {
+            allPlayers += loggedInUser + ";";
+            PlayerPrefs.SetString("AllPlayers", allPlayers);
+        }
+
         PlayerPrefs.Save();
         Debug.Log("Dữ liệu người chơi đã được lưu trữ");
     }
@@ -238,4 +245,49 @@ public class Thongtin : MonoBehaviour
             currentMana = maxMana;
         }
     }
+
+    public static List<PlayerInfo> GetAllPlayersFromThongtin()
+    {
+        List<PlayerInfo> allPlayers = new List<PlayerInfo>();
+        string playerListStr = PlayerPrefs.GetString("AllPlayers", "");
+        Debug.Log("AllPlayers string: " + playerListStr);
+
+        if (string.IsNullOrEmpty(playerListStr))
+        {
+            Debug.LogWarning("Không có dữ liệu AllPlayers trong PlayerPrefs.");
+            return allPlayers;
+        }
+
+        string[] playerNames = playerListStr.Split(';');
+        foreach (string username in playerNames)
+        {
+            if (string.IsNullOrEmpty(username)) continue;
+
+            if (PlayerPrefs.HasKey(username + "_Level"))
+            {
+                PlayerInfo info = new PlayerInfo
+                {
+                    characterName = PlayerPrefs.GetString(username + "_CharacterName", username),
+                    level = PlayerPrefs.GetInt(username + "_Level", 1),
+                };
+                allPlayers.Add(info);
+                Debug.Log($"Đã lấy: {info.characterName} - Level: {info.level}");
+            }
+            else
+            {
+                Debug.LogWarning($"Không tìm thấy dữ liệu cho user: {username}");
+            }
+        }
+
+        Debug.Log("Tổng số player lấy được: " + allPlayers.Count);
+        return allPlayers;
+    }
 }
+
+[System.Serializable]
+public class PlayerInfo
+{
+    public string characterName;
+    public int level;
+}
+

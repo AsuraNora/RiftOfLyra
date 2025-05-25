@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AttackZone : MonoBehaviour
 {
-    private Thongtin thôngtin; // Tham chiếu đến PlayerStats
+    private Thongtin thôngtin; 
 
     void Start()
     {
-        thôngtin = GetComponentInParent<Thongtin>(); // Lấy tham chiếu đến PlayerStats từ đối tượng cha
+        thôngtin = GetComponentInParent<Thongtin>(); 
     }
 
     void OnTriggerEnter2D(Collider2D collision)

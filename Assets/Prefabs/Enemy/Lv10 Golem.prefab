@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2136247740797629394}
   - component: {fileID: 5499755535683711210}
   - component: {fileID: 1509346841178676984}
+  - component: {fileID: 5041819182469875057}
   m_Layer: 0
   m_Name: Lv10 Golem
   m_TagString: Enemy
@@ -235,6 +236,42 @@ MonoBehaviour:
   - itemPrefab: {fileID: 8647879238208942697, guid: 6502401f83a624746a80a18c8bca235f, type: 3}
     dropChance: 1
   dropRadius: 2
+--- !u!58 &5041819182469875057
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205043755717110194}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.06161034, y: 0.0077011185}
+  m_Radius: 1.145764
 --- !u!1001 &4367255168751932252
 PrefabInstance:
   m_ObjectHideFlags: 0
