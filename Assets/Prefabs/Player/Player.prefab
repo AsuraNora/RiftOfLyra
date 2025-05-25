@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: -3638319033718815406}
   - component: {fileID: -1825088019539664866}
   - component: {fileID: 98001425023130064}
+  - component: {fileID: 8912273672705983844}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -499,6 +500,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e8fb5f16317d54682c5636d53599f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8912273672705983844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846305035621795540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9484383e105bb429f31f9b98fe8615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteoriteRange: 1
+  meteoriteDamage: 10
+  meteoriteCoolDown: 5
+  meteoriteManaCost: 10
+  meteoriteEffectPrefab: {fileID: 4434043638840635822, guid: 438fd3735b3772e4698e8491669e87c6, type: 3}
+  meteoriteSpeed: 15
+  meteoriteSpawnHeight: 8
 --- !u!1 &950329201120072476
 GameObject:
   m_ObjectHideFlags: 0
