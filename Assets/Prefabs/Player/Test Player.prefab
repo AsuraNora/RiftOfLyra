@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 6844663929874753706}
   - component: {fileID: -1157449022732514981}
   - component: {fileID: 1203863263537292926}
+  - component: {fileID: -5094307341004941102}
   m_Layer: 3
   m_Name: Test Player
   m_TagString: Player
@@ -335,6 +336,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e8fb5f16317d54682c5636d53599f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5094307341004941102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921917488604425328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54101d7ab9797814fb90c8740fbeacac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poisionNeedleRange: 5
+  poisionNeedleDamage: 10
+  poisionNeedleTime: 5
+  poisionNeedleEffectPrefab: {fileID: 1773372450947275344, guid: 511c2bc7b289386428cd52abc9a07077, type: 3}
 --- !u!1001 &203697064078206179
 PrefabInstance:
   m_ObjectHideFlags: 0
