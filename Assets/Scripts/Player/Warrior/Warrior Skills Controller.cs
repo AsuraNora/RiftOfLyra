@@ -181,6 +181,7 @@ public class WarriorSkillsController : MonoBehaviour
                     warriorFireMeteorite.fireMeteoriteLevel++;
                     warriorFireMeteorite.fireMeteoriteDame += 5;
                     thongtin.SavePlayerData();
+                    warriorFireMeteorite.SaveFireMeteoriteLevel();
                 }
                 else
                 {
@@ -206,7 +207,7 @@ public class WarriorSkillsController : MonoBehaviour
             WarriorFireMeteorite fireMeteoriteController = player.GetComponent<WarriorFireMeteorite>();
             if (fireMeteoriteController != null)
             {
-                textLevelSkillFireCircle.text = "Level: " + fireMeteoriteController.fireMeteoriteLevel;
+                textLevelSkillFireMeteorite.text = "Level: " + fireMeteoriteController.fireMeteoriteLevel;
                 textDameSkillFireMeteorite.text = "ATK: " + fireMeteoriteController.fireMeteoriteDame;
             }
             else

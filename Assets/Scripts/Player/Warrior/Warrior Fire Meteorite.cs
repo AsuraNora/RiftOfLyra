@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WarriorFireMeteorite : MonoBehaviour
 {
-    [SerializeField] public int fireMeteoriteLevel = 1; 
+    [SerializeField] public int fireMeteoriteLevel = 1;
     [SerializeField] private float fireMeteoriteRange = 5f;
     [SerializeField] public float fireMeteoriteDame = 10f;
     [SerializeField] private float meteoriteCoolDown = 5f;
@@ -11,6 +11,12 @@ public class WarriorFireMeteorite : MonoBehaviour
     [SerializeField] private float meteoriteSpeed = 15f;
     [SerializeField] private float meteoriteSpawnHeight = 8f; // Có thể chỉnh trên Inspector
     private float lastCastTime = -999f;
+
+    void Start()
+    {
+        // Load saved level and damage values
+        LoadFireMeteoriteLevel();
+    }
 
     void Update()
     {
@@ -69,5 +75,22 @@ public class WarriorFireMeteorite : MonoBehaviour
             Destroy(meteorite);
         }
     }
+
+    // Save và load level skill
+    public void SaveFireMeteoriteLevel()
+    {
+        string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
+        PlayerPrefs.SetInt(loggedInUser + "_FireMeteoriteLevel", fireMeteoriteLevel);
+        PlayerPrefs.SetFloat(loggedInUser + "_FireMeteoriteDame", fireMeteoriteDame);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadFireMeteoriteLevel()
+    {
+        string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
+        fireMeteoriteLevel = PlayerPrefs.GetInt(loggedInUser + "_FireMeteoriteLevel", fireMeteoriteLevel);
+        fireMeteoriteDame = PlayerPrefs.GetFloat(loggedInUser + "_FireMeteoriteDame", fireMeteoriteDame);
+    }
+
 }
 
