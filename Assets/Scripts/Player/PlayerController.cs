@@ -25,36 +25,32 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastFireDartTime + fireDartCooldown)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (thongTin != null && thongTin.currentMana >= fireDartManaCost)
+            // Chỉ trigger animation nếu đủ mana và hết hồi chiêu
+            if (thongTin != null && thongTin.currentMana >= fireDartManaCost && Time.time >= lastFireDartTime + fireDartCooldown)
             {
-                 FlipCharacter();
+                FlipCharacter();
                 animator.SetTrigger("Attack");
             }
             else
             {
                 if (thongTin == null)
-                {
                     Debug.Log("Thongtin component is null");
-                }
-                if (thongTin != null && thongTin.currentMana < fireDartManaCost)
-                {
+                else if (thongTin.currentMana < fireDartManaCost)
                     Debug.Log("Not enough mana");
-                }
+                else
+                    Debug.Log("Kỹ năng đang trong thời gian hồi chiêu");
             }
         }
     }
 
     public void OnAttackAnimationComplete()
     {
-        if (Time.time >= lastFireDartTime + fireDartCooldown)
+        // Chỉ bắn nếu đủ mana và hết hồi chiêu
+        if (thongTin != null && thongTin.currentMana >= fireDartManaCost && Time.time >= lastFireDartTime + fireDartCooldown)
         {
             FireDart();
-        }
-        else
-        {
-            Debug.Log("Kỹ năng đang trong thời gian hồi chiêu");
         }
     }
 

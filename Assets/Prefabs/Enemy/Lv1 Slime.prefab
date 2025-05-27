@@ -208,15 +208,23 @@ MonoBehaviour:
   - itemPrefab: {fileID: 4421869562478184849, guid: f12e59f6b527f1d468e3c6370e2caa69, type: 3}
     dropChance: 0.3
   - itemPrefab: {fileID: 8645631143441889444, guid: a6ec6170782bad544904253493f804c8, type: 3}
-    dropChance: 0.25
+    dropChance: 0.3
   - itemPrefab: {fileID: 8647879238208942697, guid: 6502401f83a624746a80a18c8bca235f, type: 3}
-    dropChance: 0.1
+    dropChance: 0.3
   - itemPrefab: {fileID: 4421869562478184849, guid: 4e52c99169a91d54aa1c26b9289e675b, type: 3}
-    dropChance: 0.05
+    dropChance: 0.3
   - itemPrefab: {fileID: 4421869562478184849, guid: 890959edb2e109f4aa0065b254c9aaa5, type: 3}
-    dropChance: 0.05
+    dropChance: 0.3
   - itemPrefab: {fileID: 4421869562478184849, guid: 960a20f801ff71a41b3445f520036be2, type: 3}
-    dropChance: 1
+    dropChance: 0.3
+  - itemPrefab: {fileID: 4421869562478184849, guid: a6daa8e1e828ada45ba43d5fd8a3437d, type: 3}
+    dropChance: 0.3
+  - itemPrefab: {fileID: 888225182313846461, guid: 70f9a23626d78dc4c9825109b6dc4184, type: 3}
+    dropChance: 0.3
+  - itemPrefab: {fileID: 8374590052434858423, guid: 9f28d55a09a0bb24aa49bca0a80312b2, type: 3}
+    dropChance: 0.3
+  - itemPrefab: {fileID: 8374590052434858423, guid: 9f28d55a09a0bb24aa49bca0a80312b2, type: 3}
+    dropChance: 0.3
   dropRadius: 2
 --- !u!1001 &806861051847838180
 PrefabInstance:
