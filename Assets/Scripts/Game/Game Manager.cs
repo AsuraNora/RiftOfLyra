@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
                     inventoryController.DropItem(goldCoinIndex, 1);
 
                     playerStats.currentHealth = playerStats.maxHealth;
+                    playerStats.currentMana = playerStats.maxMana;
                     canvasCommunication.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000, 0);
 
                    ActivePlayer(); 
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
             if (playerStats != null)
             {
                 playerStats.currentHealth = playerStats.maxHealth;
+                playerStats.currentMana = playerStats.maxMana;
                 player.transform.position = spawnPoint.position;
                 canvasCommunication.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000, 0);
                 ActivePlayer();
