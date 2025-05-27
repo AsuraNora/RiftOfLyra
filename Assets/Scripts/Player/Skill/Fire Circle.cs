@@ -2,24 +2,24 @@ using UnityEngine;
 
 public class FireCircle : MonoBehaviour
 {
-    public float damage = 50f; // Lượng sát thương gây ra
-    public float speed = 10f; // Tốc độ bay của kỹ năng
-    public float maxDistance = 15f; // Khoảng cách bay tối đa
+    public float speed = 10f;
+    public float maxDistance = 15f;
 
-    private Vector3 startPosition; // Vị trí bắt đầu của kỹ năng
-    private Vector3 direction; // Hướng bay của kỹ năng
-    private Transform playerTransform; // Tham chiếu đến vị trí người chơi
-    private bool returning = false; // Trạng thái quay lại người chơi
+    private Vector3 startPosition;
+    private Vector3 direction;
+    private Transform playerTransform;
+    private bool returning = false;
 
     void Start()
     {
-        startPosition = transform.position; // Lưu vị trí bắt đầu
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Lấy vị trí người chơi
+        startPosition = transform.position;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         // Tính toán hướng từ người chơi đến con trỏ chuột
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f; // Đặt z = 0 vì đây là game 2D
+        mousePosition.z = 0f;
         direction = (mousePosition - transform.position).normalized; // Hướng bay
+ 
     }
 
     void Update()
@@ -56,14 +56,18 @@ public class FireCircle : MonoBehaviour
         {
             EnemyAI enemy = collision.GetComponent<EnemyAI>();
             BossAI boss = collision.GetComponent<BossAI>();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Thongtin thongtin = player.GetComponent<Thongtin>();
+            FireCircleController fireCircleController = player.GetComponent<FireCircleController>();
             if (boss != null)
             {
-                boss.TakeDamage(damage);
+                boss.TakeDamage(thongtin.attackDamage + fireCircleController.fireBombDame);
             }
-            if (enemy != null )
+            if (enemy != null)
             {
-                enemy.TakeDamage(damage); 
+                enemy.TakeDamage(thongtin.attackDamage + fireCircleController.fireBombDame);
             }
         }
     }
+
 }

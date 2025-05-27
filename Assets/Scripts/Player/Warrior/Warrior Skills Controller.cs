@@ -103,7 +103,7 @@ public class WarriorSkillsController : MonoBehaviour
                     thongtin.upgradeSkillPoint--;
                     skillRiseMoveSpeed.levelSkillRiseSpeed++;
                     skillRiseMoveSpeed.manaCost -= 5f;
-                    thongtin.SavePlayerData();
+                    thongtin.SavePlayerData(); 
                 }
                 else
                 {
@@ -148,6 +148,7 @@ public class WarriorSkillsController : MonoBehaviour
                     skillFireCircle.textLevelSkillFireCircle++;
                     skillFireCircle.fireBombDame += 5;
                     thongtin.SavePlayerData();
+                    skillFireCircle.SaveFireCircleData();
                 }
                 else
                 {

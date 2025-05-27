@@ -132,7 +132,6 @@ public class WizardSkillsController : MonoBehaviour
         }
     }
 
-
     // Skill Poision Slash
     public void OnButtonUpgreadePoisionSlash()
     {
@@ -156,6 +155,7 @@ public class WizardSkillsController : MonoBehaviour
                         Debug.LogError("WizardFireBombController not found on Player!");
                     }
                     thongtin.SavePlayerData();
+                    fireBombInfo.SaveFireBombData();
                 }
                 else
                 {

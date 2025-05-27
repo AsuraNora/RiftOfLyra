@@ -21,7 +21,7 @@ public class Dash : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && Time.time >= lastDashTime + dashCooldown && thongtin.currentMana >= manaCost)
+        if (Input.GetKeyUp(KeyCode.Q) && Time.time >= lastDashTime + dashCooldown && thongtin.currentMana >= manaCost)
         {
             animator.SetTrigger("Teleport"); 
         }

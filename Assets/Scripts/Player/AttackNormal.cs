@@ -24,7 +24,7 @@ public class AttackNormal : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && canAttack)
+        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
                 Attack();
         }

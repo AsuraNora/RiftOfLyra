@@ -12,10 +12,10 @@ public class SkillPoisionSlashController : MonoBehaviour
 
     [Header("Distance")]
     [SerializeField] private float maxDistance = 15f;
-    [SerializeField] private GameObject rangeIndicatorPrefab; 
+    [SerializeField] private GameObject rangeIndicatorPrefab;
 
     private float lastFireBombTime = -Mathf.Infinity;
-    private GameObject rangeIndicator; 
+    private GameObject rangeIndicator;
 
     void Start()
     {
@@ -26,6 +26,8 @@ public class SkillPoisionSlashController : MonoBehaviour
             rangeIndicator.transform.localScale = new Vector3(maxDistance * 2, maxDistance * 2, 1); // Đặt kích thước vòng tròn
             rangeIndicator.SetActive(false); // Ẩn vòng tròn
         }
+
+        LoadFireBombData();
     }
 
     void Update()
@@ -39,7 +41,7 @@ public class SkillPoisionSlashController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.E))
         {
-             FireBomb();
+            FireBomb();
         }
     }
 
@@ -51,7 +53,7 @@ public class SkillPoisionSlashController : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             Thongtin playerInfo = player.GetComponent<Thongtin>();
 
-            if (playerInfo != null && playerInfo.currentMana >= manaCost && playerInfo.level >= levelRequest )
+            if (playerInfo != null && playerInfo.currentMana >= manaCost && playerInfo.level >= levelRequest)
             {
                 Debug.Log("Fire Bomb Done");
 
@@ -75,4 +77,19 @@ public class SkillPoisionSlashController : MonoBehaviour
             }
         }
     }
+
+    public void SaveFireBombData()
+    {
+        string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
+        PlayerPrefs.SetInt(loggedInUser + "_PoisionSlashLevel", levelSkill);
+        PlayerPrefs.SetFloat(loggedInUser + "_PoisionSlashDame", fireBombDame);
+    }
+
+    public void LoadFireBombData()
+    {
+        string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
+        levelSkill = PlayerPrefs.GetInt(loggedInUser + "_PoisionSlashLevel", levelSkill);
+        fireBombDame = PlayerPrefs.GetFloat(loggedInUser + "_PoisionSlashDame", fireBombDame);
+    }
+
 }

@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class FireCircleController : MonoBehaviour
 {
-    public GameObject poisonSlashPrefab; // Prefab của kỹ năng
-    public Transform firePoint; // Vị trí bắn kỹ năng
-    public float manaCost = 20f; // Lượng mana tiêu tốn
-    public float cooldownTime = 5f; // Thời gian hồi chiêu
-    public float fireBombDame = 10f; // Sát thương của kỹ năng
+    public GameObject poisonSlashPrefab;
+    public Transform firePoint;
+    public float manaCost = 20f;
+    public float cooldownTime = 5f;
+    public float fireBombDame = 10f;
 
-    private float lastSkillUseTime = -Mathf.Infinity; // Thời gian sử dụng kỹ năng lần cuối
-    public int textLevelSkillFireCircle = 1; // Cấp độ kỹ năng
+    private float lastSkillUseTime = -Mathf.Infinity;
+    public int textLevelSkillFireCircle = 1;
+
+    void Start()
+    {
+        LoadCircleData();
+    }
 
     void Update()
     {
@@ -25,7 +30,7 @@ public class FireCircleController : MonoBehaviour
         if (thongtin != null)
         {
             // Kiểm tra mana và thời gian hồi chiêu
-            if (Time.time >= lastSkillUseTime + cooldownTime && thongtin.currentMana >= manaCost && thongtin.level >= 3 )
+            if (Time.time >= lastSkillUseTime + cooldownTime && thongtin.currentMana >= manaCost)
             {
                 // Tiêu tốn mana
                 thongtin.currentMana -= manaCost;
@@ -52,4 +57,20 @@ public class FireCircleController : MonoBehaviour
             Debug.LogError("Không tìm thấy component Thongtin trên nhân vật!");
         }
     }
+    
+    public void SaveFireCircleData()
+    {
+        string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
+        PlayerPrefs.SetInt(loggedInUser + "_FireCircleLevel", textLevelSkillFireCircle);
+        PlayerPrefs.SetFloat(loggedInUser + "_FireCircleDame", fireBombDame);
+        PlayerPrefs.Save();
+    }
+    
+    private void LoadCircleData()
+    {
+        string loggedInUser = PlayerPrefs.GetString("LoggedInUser");
+        textLevelSkillFireCircle = PlayerPrefs.GetInt(loggedInUser + "_FireCircleLevel", textLevelSkillFireCircle);
+        fireBombDame = PlayerPrefs.GetFloat(loggedInUser + "_FireMeteoriteDame", fireBombDame);
+    }
+
 }

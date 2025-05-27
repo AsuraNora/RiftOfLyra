@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time >= lastFireDartTime + fireDartCooldown)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= lastFireDartTime + fireDartCooldown)
         {
             if (thongTin != null && thongTin.currentMana >= fireDartManaCost)
             {

@@ -68,8 +68,10 @@ public class WarriorFireMeteorite : MonoBehaviour
                 if (hit.CompareTag("Enemy"))
                 {
                     EnemyAI enemy = hit.GetComponent<EnemyAI>();
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    Thongtin playerInfo = player.GetComponent<Thongtin>();
                     if (enemy != null)
-                        enemy.TakeDamage(fireMeteoriteDame);
+                        enemy.TakeDamage(playerInfo.attackDamage + fireMeteoriteDame);
                 }
             }
             Destroy(meteorite);

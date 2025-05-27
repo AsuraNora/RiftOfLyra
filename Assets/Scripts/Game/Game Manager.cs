@@ -71,23 +71,21 @@ public class GameManager : MonoBehaviour
                 int goldCoinIndex = -1;
                 foreach (var item in inventorySO.GetCurrentInventoryState())
                 {
-                    if (item.Value.item.itemName == "Gold Coin")
+                    if (item.Value.item.itemName == "Xu vàng")
                     {
-                        goldCoinIndex = item.Key; // Lưu lại vị trí của Gold Coin
+                        goldCoinIndex = item.Key; 
                         break;
                     }
                 }
 
-                if (goldCoinIndex != -1) // Nếu tìm thấy Gold Coin
+                if (goldCoinIndex != -1) 
                 {
-                    // Gọi hàm DropItem để giảm số lượng Gold Coin
                     inventoryController.DropItem(goldCoinIndex, 1);
 
-                    // Hồi sinh nhân vật
                     playerStats.currentHealth = playerStats.maxHealth;
                     canvasCommunication.GetComponent<RectTransform>().anchoredPosition = new Vector2(2000, 0);
 
-                   ActivePlayer(); // Kích hoạt lại các thành phần của nhân vật
+                   ActivePlayer(); 
 
                     Debug.Log("Player revived using Gold Coin!");
                 }
@@ -102,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void OnExitButtonClicked()
     {
-        notEnoughGoldText.gameObject.SetActive(false); // Ẩn thông báo không đủ vàng khi nhấn nút thoát
+        notEnoughGoldText.gameObject.SetActive(false); 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
