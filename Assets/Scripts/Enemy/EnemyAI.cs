@@ -106,7 +106,7 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator ClearDameText()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         textDeclineHP.text = string.Empty;
     }
 
